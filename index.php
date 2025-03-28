@@ -1,16 +1,7 @@
 <?php
 // Just For Fun :)
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Reprogram Blog</title>
-    <link href="./assets/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="./assets/css/index.css">
-</head>
-<body>
+
 <?php require_once "./includes/navbar.php" ?>
 <!-- Hero Section -->
 <div class="hero">
@@ -60,7 +51,3 @@
     </div>
 </div>
 <?php require_once "./includes/footer.php" ?>
-
-<script src="./assets/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>

@@ -87,7 +87,6 @@ if (isset($_POST["username"]) && isset($_POST["name"]) && isset($_POST["password
 
     <?php require_once "./includes/footer.php" ?>
 
-    <script src="./assets/js/bootstrap.bundle.min.js"></script>
     <script>
         function saveFormData() {
             localStorage.setItem("name", document.getElementById("name").value);
