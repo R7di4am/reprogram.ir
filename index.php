@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./assets/css/index.css">
 </head>
 <body>
-<?php include_once "./includes/navbar.php" ?>
+<?php require_once "./includes/navbar.php" ?>
 <!-- Hero Section -->
 <div class="hero">
     <h3>Share Your Knowledge with us</h3>
@@ -56,7 +56,7 @@
         </div>
     </div>
 </div>
-<?php include_once "./includes/footer.php" ?>
+<?php require_once "./includes/footer.php" ?>
 
 <script src="./assets/js/bootstrap.bundle.min.js"></script>
 </body>

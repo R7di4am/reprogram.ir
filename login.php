@@ -1,3 +1,41 @@
+<?php
+require_once "./database/functions.php";
+require_once "./database/db.php";
+
+if(is_login_ok()){
+    echo "you login";
+    exit;
+}
+
+$form_status = false;
+
+if (isset($_POST["username"]) && isset($_POST["password"])) {
+    $username = sanitizeInput($_POST["username"]);
+    $password = $_POST["password"];
+
+    try {
+        $user = get_user_by_username($username);
+
+        if ($user) {
+            if (password_verify($password, $user['password'])) {
+                $_SESSION['id'] = $user['id'];
+                $ip = $_SERVER['REMOTE_ADDR'];
+                $token = generate_key();
+                $_SESSION['fingerprint'] = hash('sha256',$ip.$token);
+                update_user_by_id($user['id'],$token,$ip);
+                $form_status = "Login successful";
+            } else {
+                $form_status = "Wrong Password";
+            }
+        } else {
+            $form_status = "Wrong Username";
+        }
+
+    } catch (PDOException $e) {
+        $form_status = "Login failed";
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,9 +49,10 @@
 </head>
 
 <body class="d-flex align-items-center justify-content-center mt-5">
-    <div class="login-container">
-        <h2>Login to Your Account</h2>
-        <form action="login_process.php" method="POST">
+    <div class="login-container text-center">
+        <h3>Login to Your Account</h3>
+        <?php echo $form_status ? '<p class="text-danger">' . $form_status . "</p>" : "" ?>
+        <form action="./login.php" method="POST" class="mt-4">
             <div class="mb-3">
                 <input type="text" class="form-control" name="username" placeholder="Username" required>
             </div>
