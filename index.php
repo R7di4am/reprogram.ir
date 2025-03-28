@@ -11,7 +11,7 @@
 <?php include_once "./includes/navbar.php" ?>
 <!-- Hero Section -->
 <div class="hero">
-    <h1>Share Your Knowledge with us</h1>
+    <h3>Share Your Knowledge with us</h3>
     <p class="lead">Inspire, educate, and connect through your words.</p>
     <a href="login.php" class="btn-custom">Get Started</a>
 </div>
