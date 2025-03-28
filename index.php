@@ -1,3 +1,6 @@
+<?php
+// Just For Fun :)
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
